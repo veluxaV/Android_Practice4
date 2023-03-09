@@ -18,6 +18,7 @@ import android.widget.Toast;
 public class FirstScreen extends Fragment {
 
     Button addCarButton;
+    Button chooseServiceButton;
     final String TAG = "FirstScreenLayout";
     final static String ARG_PARAM1 = "CAR_NAME";
     final static String ARG_PARAM2 = "CAR_BRAND";
@@ -61,6 +62,7 @@ public class FirstScreen extends Fragment {
 
         add_car_text = (TextView) v.findViewById(R.id.add_car_text);
         addCarButton = (Button) v.findViewById(R.id.add_car_button);
+        chooseServiceButton = (Button) v.findViewById(R.id.choose_service_button);
 
         if (getArguments() != null) {
             String name = getArguments().getString(ARG_PARAM1);
@@ -78,6 +80,18 @@ public class FirstScreen extends Fragment {
                 if (savedInstanceState == null) {
                     getActivity().getSupportFragmentManager().beginTransaction()
                             .replace(R.id.container, AddCar.newInstance())
+                            .commit();
+                }
+            }
+        });
+        chooseServiceButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d(TAG, "Button click in FirstScreen");
+
+                if (savedInstanceState == null) {
+                    getActivity().getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.container, Services.newInstance())
                             .commit();
                 }
             }

@@ -22,7 +22,7 @@ public class Services extends Fragment {
     }
 
 
-    public static Services newInstance(String param1, String param2) {
+    public static Services newInstance() {
         Services fragment = new Services();
         Bundle args = new Bundle();
         fragment.setArguments(args);
