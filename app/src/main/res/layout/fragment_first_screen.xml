@@ -6,15 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".FirstScreen"
     android:background="@color/grey">
-    <Button
-        android:id="@+id/add_car_button"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/add_car_text"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="16dp"
-        android:backgroundTint="@color/red"
-        android:text="@string/add_car" />
+
 
     <TextView
         android:id="@+id/title_box"
@@ -69,5 +61,23 @@
             android:textColor="@color/red"
             android:textSize="40sp" />
     </LinearLayout>
+    <Button
+        android:id="@+id/add_car_button"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/add_car_text"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/red"
+        android:text="@string/add_car" />
+    <Button
+        android:id="@+id/choose_service_button"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/add_car_button"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/red"
+        android:text="@string/choose_service" />
 
 </RelativeLayout>

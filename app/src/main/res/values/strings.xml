@@ -7,4 +7,5 @@
     <string name="car_brandname">Марка автомобиля</string>
     <string name="go_back">Назад</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="choose_service">Выбрать услугу</string>
 </resources>
