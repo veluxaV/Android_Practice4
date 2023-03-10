@@ -9,13 +9,16 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Toast;
 
 public class AddCar extends Fragment {
 
     Button backButton;
+    ListView carBrands;
     final String TAG = "AddCarLayout";
     private EditText car_name;
     private EditText car_brandname;
@@ -25,6 +28,9 @@ public class AddCar extends Fragment {
     public static AddCar newInstance() {
         AddCar fragment = new AddCar();
         return fragment;
+    }
+    public AddCar(){
+
     }
 
     @Override
@@ -55,22 +61,38 @@ public class AddCar extends Fragment {
         backButton = (Button) v.findViewById(R.id.GoBackButton);
 
         car_name = (EditText) v.findViewById(R.id.name_edit_text);
-        car_brandname = (EditText) v.findViewById(R.id.brand_edit_text);
+        final String[] carBrandArray = getResources().getStringArray(R.array.car_brands);
+        //car_brandname = (EditText) v.findViewById(R.id.brand_edit_text);
+
+        // Первым делом необходимо найти список на верстке экрана
+        carBrands = (ListView) v.findViewById(R.id.car_brand_list);
+        // Далее, создать адаптер и передать в него Context,ресурс разметки элемента списка, массив элементов
+        CarBrandAdapter adapter = new CarBrandAdapter(getContext(), R.layout.list_layout, carBrandArray);
+        // устанавливаем для списка адаптер
+        carBrands.setAdapter(adapter);
 
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Log.d(TAG, "Button click in AddCar");
                 String name = car_name.getText().toString();
-                String brand = car_brandname.getText().toString();
+                //String brand = car_brandname.getText().toString();
                 Log.d("Car name", name);
-                Log.d("Car brand", brand);
+                //Log.d("Car brand", brand);
 
                 if (savedInstanceState == null) {
                     getActivity().getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.container, FirstScreen.newInstance(name, brand))
+                            .replace(R.id.container, FirstScreen.newInstance(name, null))
                             .commit();
                 }
+            }
+        });
+
+        carBrands.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                String selection = adapterView.getItemAtPosition(i).toString();
+                Toast.makeText(getContext(), selection, Toast.LENGTH_LONG).show();
             }
         });
         return v;

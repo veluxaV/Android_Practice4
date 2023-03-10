@@ -46,15 +46,15 @@
 
     <EditText
         android:id="@+id/name_edit_text"
-        android:layout_width="359dp"
-        android:layout_height="50dp"
+        android:layout_width="310dp"
+        android:layout_height="53dp"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="10dp"
-        android:textColor="@color/black"
+        android:layout_marginTop="12dp"
         android:background="@color/white"
         android:hint="@string/car_name"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.357"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/car_name" />
 
@@ -62,30 +62,16 @@
         android:id="@+id/car_brand"
         android:layout_width="283dp"
         android:layout_height="37dp"
-        android:layout_marginTop="15dp"
         android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:gravity="bottom"
         android:text="@string/car_brandname"
         android:textColor="@color/black"
         android:textSize="20sp"
-        android:gravity="bottom"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/name_edit_text" />
-
-    <EditText
-        android:id="@+id/brand_edit_text"
-        android:layout_width="359dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="10dp"
-        android:background="@color/white"
-        android:textColor="@color/black"
-        android:hint="@string/car_brandname"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/car_brand" />
 
     <TextView
         android:id="@+id/title"
@@ -98,6 +84,18 @@
         android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="@+id/title_box"
         app:layout_constraintStart_toEndOf="@+id/GoBackButton" />
+
+    <ListView
+        android:id="@+id/car_brand_list"
+        android:layout_width="310dp"
+        android:layout_height="336dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="12dp"
+        android:background="@color/white"
+        app:layout_constraintTop_toBottomOf="@+id/car_brand"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.357"
+        app:layout_constraintStart_toStartOf="parent"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
