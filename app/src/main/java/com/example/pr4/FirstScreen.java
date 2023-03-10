@@ -75,7 +75,7 @@ public class FirstScreen extends Fragment {
         addCarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d(TAG, "Button click in FirstScreen");
+                Log.d(TAG, "Button clicked AddCar");
 
                 if (savedInstanceState == null) {
                     getActivity().getSupportFragmentManager().beginTransaction()
@@ -87,7 +87,7 @@ public class FirstScreen extends Fragment {
         chooseServiceButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d(TAG, "Button click in FirstScreen");
+                Log.d(TAG, "Button clicked Services");
 
                 if (savedInstanceState == null) {
                     getActivity().getSupportFragmentManager().beginTransaction()

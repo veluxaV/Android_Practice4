@@ -93,6 +93,7 @@ public class AddCar extends Fragment {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 String selection = adapterView.getItemAtPosition(i).toString();
                 Toast.makeText(getContext(), selection, Toast.LENGTH_LONG).show();
+                Log.d("TAG", selection);
             }
         });
         return v;
