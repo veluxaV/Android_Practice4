@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -48,6 +49,8 @@ public class ServicesAdapter extends RecyclerView.Adapter< ServicesAdapter.ViewH
         ViewHolder(View view, OnItemClickListener onItemClickListener){
             super(view);
             textView = view.findViewById(R.id.service);
+            ImageView imageView = view.findViewById(R.id.image_car);
+            imageView.setImageResource(R.drawable.not_painted);
             this.onItemClickListener = onItemClickListener;
 
             itemView.setOnClickListener(new View.OnClickListener() {

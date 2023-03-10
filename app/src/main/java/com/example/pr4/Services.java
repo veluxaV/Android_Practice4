@@ -77,7 +77,6 @@ public class Services extends Fragment implements ServicesAdapter.OnItemClickLis
 
     @Override
     public void onItemClick(int position) {
-        //String selection = ServicesAdapter.items;
         Toast.makeText(getContext(), "RecyclerView нажатие", Toast.LENGTH_SHORT).show();
     }
 }
