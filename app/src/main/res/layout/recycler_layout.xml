@@ -15,5 +15,4 @@
         android:text=""
         android:textColor="@color/black"
         android:gravity="center"/>
-
 </LinearLayout>

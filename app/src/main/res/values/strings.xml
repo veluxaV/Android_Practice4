@@ -18,4 +18,17 @@
         <item>Lexus</item>
         <item>Bentley</item>
     </string-array>
+    <string-array name="services">
+        <item>Мойка</item>
+        <item>Замена масла</item>
+        <item>Замена фар</item>
+        <item>Замена шин</item>
+        <item>Замена дисков</item>
+        <item>Замена свечей</item>
+        <item>Замена фильтров</item>
+        <item>Диагностика</item>
+        <item>Ремонт двигателя</item>
+        <item>Ремонт тормозов</item>
+        <item>Ремонт подвески</item>
+    </string-array>
 </resources>
