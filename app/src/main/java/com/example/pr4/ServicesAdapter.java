@@ -68,6 +68,5 @@ public class ServicesAdapter extends RecyclerView.Adapter< ServicesAdapter.ViewH
     }
     public interface OnItemClickListener {
          void onItemClick(int position);
-
     }
 }

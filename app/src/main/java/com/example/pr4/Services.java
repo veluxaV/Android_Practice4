@@ -1,5 +1,7 @@
 package com.example.pr4;
 
+import android.content.Context;
+import android.content.res.AssetManager;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -15,6 +17,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+
 
 public class Services extends Fragment implements ServicesAdapter.OnItemClickListener {
 
@@ -24,7 +32,6 @@ public class Services extends Fragment implements ServicesAdapter.OnItemClickLis
     public Services() {
         // Required empty public constructor
     }
-
 
     public static Services newInstance() {
         Services fragment = new Services();
@@ -52,7 +59,14 @@ public class Services extends Fragment implements ServicesAdapter.OnItemClickLis
 
         backButton = (Button) v.findViewById(R.id.GoBackButton);
 
-        final String[] servicesArray = getResources().getStringArray(R.array.services);
+        String[] servicesArray;// массив для названий
+        try {
+            servicesArray = getBrandsFromFile(getContext()).toArray(new String[getBrandsFromFile(getContext()).size()]);
+            // вызов метода считывания  построчно из файла
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
 
         // Первым делом необходимо найти список на верстке экрана
         services = (RecyclerView) v.findViewById(R.id.services);
@@ -77,6 +91,24 @@ public class Services extends Fragment implements ServicesAdapter.OnItemClickLis
         return v;
     }
 
+    public ArrayList<String> getBrandsFromFile(Context context) throws IOException
+    //метод для чтения построчно из файла
+    {
+        ArrayList<String> arrayList = new ArrayList<>();
+        try {
+            String line;
+            AssetManager assetManager = context.getAssets();
+            InputStreamReader istream = new InputStreamReader(assetManager.open("Services.txt"));
+            BufferedReader in = new BufferedReader(istream);
+            while ((line = in.readLine()) != null){
+                arrayList.add(line);
+            }
+            in.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        return arrayList;
+    }
     @Override
     public void onItemClick(int position) {
         Toast.makeText(getContext(), "RecyclerView нажатие", Toast.LENGTH_SHORT).show();

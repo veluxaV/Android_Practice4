@@ -29,6 +29,12 @@
         <item>UAS</item>
         <item>Aurus</item>
         <item>Opel</item>
+        <item>Ferrari</item>
+        <item>Infiniti</item>
+        <item>Kia</item>
+        <item>Land Rover</item>
+        <item>Lamborghini</item>
+        <item>Rolls-Royce</item>
     </string-array>
     <string-array name="services">
         <item>Замена двигателя</item>
@@ -51,5 +57,14 @@
         <item>Балансировка шин</item>
         <item>Мойка салона</item>
         <item>Мойка</item>
+        <item>Ремонт электрики и электроники</item>
+        <item>Ремонт системы охлаждения</item>
+        <item>Замена ремней и цепей ГРМ</item>
+        <item>Замена топливного насоса</item>
+        <item>Ремонт системы питания</item>
+        <item>Замена форсунок и свечей</item>
+        <item>Ремонт системы впрыска топлива</item>
+        <item>Замена амортизаторов</item>
+        <item>Ремонт дверей и замков</item>
     </string-array>
 </resources>

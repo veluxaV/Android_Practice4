@@ -1,6 +1,7 @@
 package com.example.pr4;
 
 import android.content.Context;
+import android.content.res.AssetManager;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -14,6 +15,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
 
 public class AddCar extends Fragment {
 
@@ -61,8 +68,16 @@ public class AddCar extends Fragment {
         backButton = (Button) v.findViewById(R.id.GoBackButton);
 
         car_name = (EditText) v.findViewById(R.id.name_edit_text);
-        final String[] carBrandArray = getResources().getStringArray(R.array.car_brands);
+        //final String[] carBrandArray = getResources().getStringArray(R.array.car_brands);
         //car_brandname = (EditText) v.findViewById(R.id.brand_edit_text);
+
+        String[] carBrandArray;// массив для названий
+        try {
+            carBrandArray = getBrandsFromFile(getContext()).toArray(new String[getBrandsFromFile(getContext()).size()]);
+            // вызов метода считывания  построчно из файла
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
         // Первым делом необходимо найти список на верстке экрана
         carBrands = (ListView) v.findViewById(R.id.car_brand_list);
@@ -99,6 +114,24 @@ public class AddCar extends Fragment {
         return v;
     }
 
+    public ArrayList<String> getBrandsFromFile(Context context) throws IOException
+    //метод для чтения построчно из файла
+    {
+        ArrayList<String> arrayList = new ArrayList<>();
+        try {
+            String line;
+            AssetManager assetManager = context.getAssets();
+            InputStreamReader istream = new InputStreamReader(assetManager.open("Brands.txt"));
+            BufferedReader in = new BufferedReader(istream);
+            while ((line = in.readLine()) != null){
+                arrayList.add(line);
+            }
+            in.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        return arrayList;
+    }
     @Override
     public void onResume() {
         super.onResume();
